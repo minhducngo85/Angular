@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Observer } from 'rxjs';
 
 @Component({
   selector: 'app-test-component',
@@ -19,5 +20,12 @@ export class TestComponentComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  /**
+   * built-in pipe
+   */
+  timeChange = new Observable<string>((observer: Observer<string>) => {
+    setInterval(() => observer.next(new Date().toString()), 1000); 
+ }); 
 
 }

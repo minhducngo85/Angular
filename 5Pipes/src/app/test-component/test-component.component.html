@@ -55,6 +55,16 @@ Hours and minutes: {{presentDate | date: 'hh:MM'}}<br />
     <p>
         <span ngNonBindable>{{jsonData | json}}:</span><br/> {{jsonDate | json}}
     </p>
-    
+</div>
 
+<div>
+    <h3>Custome pipe - Digit Pipe</h3>
+    lenght of {{decimalNum1}}: {{decimalNum1 | digitcount}}<br/>
+    lenght of {{decimalNum2}}: {{decimalNum2 | digitcount}}
+</div>
+
+<div>
+    <h3>AsyncPipe</h3>
+    <p>The Async pipe performs subscription for time changing in every one seconds and returns the result whenever gets passed to it</p>
+    Seconds changing in Time: {{ timeChange | async | date:"dd/MM/yyyy HH:mm:ss"}}
 </div>
