@@ -1,1 +1,60 @@
-<p>test-component works!</p>
+<div>
+    Today's date :- {{presentDate}}
+</div>
+
+<h2>Date Pipe</h2>
+Today's date : {{presentDate | date }}<br />
+short date: {{presentDate | date: 'shortDate'}}<br />
+full date: {{presentDate | date: 'shortDate'}}<br />
+formatted date: {{presentDate | date: 'dd/MM/yyyy'}}<br />
+Hours and minutes: {{presentDate | date: 'hh:MM'}}<br />
+
+<h2>Chanied Pipes</h2>
+<div>
+    Date with uppercase :- {{presentDate | date:'fullDate' | uppercase}} <br />
+    Date with lowercase :- {{presentDate | date:'medium' | lowercase}} <br />
+</div>
+
+<div style="text-align:cleft">
+    <h3> Currency Pipe</h3>
+    <p>{{ price | currency:'EUR':true}}</p>
+    <p>{{ price | currency:'INR' }}</p>
+</div>
+
+
+<div>
+    <h3> Slice Pipe</h3>
+    <h2>Fruits: {{Fruits}}</h2>
+    <h5>Start index(2): {{Fruits | slice:2}}</h5>
+    <h5>Start and end index(1:4): {{Fruits | slice:1:4}}</h5>
+    <h5>Negative index (:-2): {{Fruits | slice:-2}}</h5>
+    <h5>Negative start and end index (-4:-2): {{Fruits | slice:-4:-2}}</h5>
+</div>
+
+<div>
+    <h3> number Pipe</h3>
+    <p>  number:"minimumIntegerDigits.minimumFractionDigits - maximumFractionDigits"</p>
+    <p> {{decimalNum1 | number}} </p>
+    <p> {{decimalNum2 | number}} </p>
+    <p> Apply formatting: {{decimalNum1 | number:'3.1'}} </p> 
+    <p> Apply formatting: {{decimalNum1 | number:'1.1-1'}} </p> 
+    <p> Apply formatting: {{decimalNum1 | number:'2.1-4'}} </p> 
+</div>
+
+<div>
+    <h3>percent Pipe</h3>
+    <p>{{percentNum | percent}}</p>
+</div>
+
+<div>
+    <h3>json Pipe</h3>
+    <p>
+        <span ngNonBindable>{{jsonData}}:</span><br/> {{jsonDate}}
+    </p>
+    
+    <p>
+        <span ngNonBindable>{{jsonData | json}}:</span><br/> {{jsonDate | json}}
+    </p>
+    
+
+</div>
