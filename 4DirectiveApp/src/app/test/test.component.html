@@ -1,0 +1,84 @@
+Angular directives can be classified into three categories and they are as follows:
+Attribute directives<br />
+Structural directives<br />
+Component based directives<br />
+
+<h2>ngIf example</h2>
+<div *ngIf="true">Display data</div>
+
+<h2>ngIfElse example</h2>
+<div *ngIf="isLoggedIn; else isLoggedOut">
+    Hello you are logged in
+</div>
+<ng-template #isLoggedOut>
+    You're logged out..
+</ng-template>
+
+
+<h2>ngFor example</h2>
+<ul>
+    <li *ngFor="let l of list">
+        {{l}}
+    </li>
+</ul>
+
+
+<h2>trackBy example: To iterate over large objects collection, we use trackBy.</h2>
+<ul>
+    <li *ngFor="let student of studenArr; trackBy : trackByStudent">
+        {{student.name}}
+    </li>
+</ul>
+
+<h2>ngSwitch directive</h2>
+<ul [ngSwitch]="logInName">
+    <li *ngSwitchCase="'user'">
+        User is logged in...
+    </li>
+    <li *ngSwitchCase="'admin'">
+        Admin is logged in...
+    </li>
+    <li *ngSwitchDefault>
+        Please choose a login name
+    </li>
+</ul>
+
+<h2>ngStyle directive</h2>
+<p [ngStyle]="{'color':'blue', 'font-size':'16px'}">
+    paragraph style is applied using ngStyle
+</p>
+
+<h2>ngClass directive</h2>
+<div class="container">
+    <div *ngFor="let user of users" [ngClass]="{'highlight':user.userName === 'User1'}">
+        {{user.userName}}
+    </div>
+</div>
+
+
+<h2>custom directive</h2>
+<div appCustomstyle>Custom style directive</div>
+
+<h3>ng-template</h3>
+ng-template is used to create dynamic and reusable templates. It is a virtual element. If you compile your code with
+ng-template then is converted as comment in DOM.
+<br />
+<ng-template>ng-template tag is a virtual element</ng-template>
+<br />
+ng-template should always be used inside ngIf, ngFor or ngSwitch directives to render the result.
+<ng-template [ngIf]=true>
+    <div>ng-tempalte works!</div>
+</ng-template>
+
+<h3>NgForOf directive</h3>
+<div>
+    <ng-template ngFor let-item [ngForOf]="Fruits" let-i="index">
+        <p>{{i}} - {{item}}</p>
+    </ng-template>
+</div>
+
+
+<h3>Component directive</h3>
+Actually, each component can be used as directive. Component provides @Input and @Output decorator to send and receive
+information between parent and child components.
+<app-child [name]="'Minh Duc'"></app-child>

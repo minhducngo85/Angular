@@ -1,0 +1,33 @@
+<h1>{{appName}}</h1>
+
+<h1>One Way Data Binding</h1>
+<h2>Event Binding</h2>
+<button (click)="showData($event)">(click)</button><br/><br/>
+
+<button on-click="showData($event)">on-click</button>
+
+<h2>Property Binding</h2>
+Syntax: &lt;HTMLTag [attr.ATTR]="Component data"&gt;<br/>
+exxample: &lt;input type="text" [value]="userName"/&gt;<br/>
+
+<input type="text" [value]="userName"/>
+
+<h2>Class and Style Binding</h2>
+Class binding is used to bind the data from component to HTML class property<br/>
+Syntax: &lt;HTMLTag [class]="component variable holding class name"&gt;<br/>
+
+<p [class]="myCSSClass">This paragraph class comes from *myClass* property </p> 
+<p [class.blue]="applyCSSClass">This paragraph class does not apply</p>
+
+Style binding is used to bind the data from component into HTML style property.<br/>
+Syntax: &lt;HTMLTag [style.STYLE]="component data"&gt;
+<p [style.color]="myStyleColor">Text color is styled using style binding</p>
+
+<h1>Two Way Data Binding</h1>
+<h2>NgModel</h2>
+NgModel is a standalone directive. ngModel directive binds form control to property and property to form control.<br/>
+Systax: &lt;HTML [(ngModel)]="model.name" /&gt;<br/>
+Example: &lt;input type="text" [(ngModel)]="model.name" /&gt;<br/>
+
+<input type="text" [(ngModel)]="userName" />
+<p>Two way binding! Hello {{ userName }}!</p>

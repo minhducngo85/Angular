@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>AngularJS First Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <h1>Directive Application</h1>
+
+
+
+
+
+    <div ng-app="" ng-init="countries = [{locale:'en-US',name:'United States'}, {locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]">
+        <p>Enter your Name: <input type="text" ng-model="name"></p>
+        <p>Hello <span ng-bind="name"></span></p>
+        <p>List of Countries with locale:</p>
+        <ol>
+            <li ng-repeat="country in countries">
+                {{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+            </li>
+        </ol>
+    </div>
+
+
+    <!--This is a comment. Comments are not displayed in the browser-->
+    <h3>AngularJS directives are used to extend HTML. They are special attributes starting with ng-prefix. Let us discuss the
+        following directives:</h3>
+    <ul>
+        <li><b>ng-app</b> - This directive starts an AngularJS Application</li>
+        <li><b>ng-init</b> - This directive initializes application data.</li>
+        <li><b>ng-model</b> − This directive defines the model that is variable to be used in AngularJS. </li>
+        <li><b>ng-repeat</b> - This directive repeats HTML elements for each item in a collection. </li>
+    </ul>
+</body>
+
+</html>

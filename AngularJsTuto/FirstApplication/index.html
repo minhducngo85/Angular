@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>AngularJS First Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <h1>Sample Application</h1>
+    <div ng-app="">
+        <p>Enter your name: <input type="text" ng-model="name" /> </p>
+        <p>Hello <span ng-bind="name" /> !</p>
+    </div>
+
+    <!--This is a comment. Comments are not displayed in the browser-->
+    <h1> How AngularJS Integrates with HTML</h1>
+    <ul>
+        <li>The <b>ng-app</b> directive indicates the start of AngularJS application.</li>
+        <li>The <b>ng-model</b> directive creates a model variable named name, which can be used with the HTML page and within
+            the div having ng-app directive.</li>
+        <li>The <b>ng-bind</b> then uses the name model to be displayed in the HTML &lt;span&gt; tag whenever user enters input
+            in the text box.</li>
+        <li>Closing <b>&lt;/div&gt;</b> tag indicates the end of AngularJS application.</li>
+    </ul>
+</body>
+
+</html>
