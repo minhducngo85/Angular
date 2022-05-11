@@ -1,0 +1,14 @@
+<h1>{{ title }}</h1>
+
+<div>
+   <a href="#" (click)="find10thPrimeNumber()">Click here</a> to find 10th prime number
+   <div>The 10<sup>th</sup> prime number is {{ prime10 }}</div> <br/>
+   <a href="#" (click)="find10000thPrimeNumber()">Click here</a> to find 10000th prime number
+   <div>The 10000<sup>th</sup> prime number is {{ prime10000 }}</div>
+</div>
+
+<div style="margin-top:30px;">
+  N = <input type="number" [(ngModel)]="nNumber" step="10"/><br/>
+  <a href="#" (click)="findNthPrimeNumber()">Click here</a> to find {{nNumber}}th prime number
+  <div>The {{nNumber}}<sup>th</sup> prime number is {{ primeNNumber }}</div>
+</div>
