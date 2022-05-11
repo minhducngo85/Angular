@@ -1,3 +1,4 @@
+import { DebugService } from './../servcice/debug.service';
 import { ExpenseEntry } from './../model/expense-entry';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,12 +11,17 @@ export class ExpenseEntryListComponent implements OnInit {
   title: string;
   expenseEntries: ExpenseEntry[];
 
-  constructor() {
-    this.title = "Expense Entry List";
-    this.expenseEntries = this.getExpenseEntries();
-   }
+  /**
+   * inject debug service
+   */
+  constructor(private debugService: DebugService) {
+
+  }
 
   ngOnInit(): void {
+    this.debugService.info("Expense Entry List component initialized");
+    this.title = "Expense Entry List";
+    this.expenseEntries = this.getExpenseEntries();
   }
 
   getExpenseEntries(): ExpenseEntry[] {

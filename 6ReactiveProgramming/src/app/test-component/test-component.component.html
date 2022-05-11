@@ -1,0 +1,59 @@
+<h1>{{ title }}</h1>
+<div>
+    The summation of numbers ({{ numbers }}) is {{ val1 }} <br />
+    The summation of numbers ({{ filteredNumbers }}) is {{ val2 }} <br />
+    The summation of processed numbers ({{ processedNumbers }}) is {{ val3 }}
+    <div>The response from the API is <em>{{ apiMessage }}</em> </div>
+    <div> 
+        <a id="counter" href="#" #filterInput>Click here</a> to increment the counter value. The current counter value is {{ counter }} 
+     <div>
+</div>
+<div style="margin-top:50px;"></div>
+<h1>Summary</h1>
+Reactive programming enables the data stream to be emitted from one source called Observable and the emitted data stream
+to be caught by other sources called Observer through a process called subscription.
+
+<p>
+    RxJs is a JavaScript Library which enables reactive programming in JavaScript. Angular uses RxJs library extensively
+    to do below mentioned advanced concepts −
+</p>
+<ul>
+    <li>Data transfer between components.</li>
+    <li>HTTP client.</li>
+    <li>Router.</li>
+    <li>Reactive forms.</li>
+</ul>
+
+
+<div>
+    <h2>Observable</h2>
+    <p>Observable are data sources and they may be static or dynamic.</p>
+    <p ngNonBindable>const numbers$ = of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);</p>
+    <p ngNonBindable>const numbers$ = range(1,10)</p>
+    <p ngNonBindable>const numbers$ = from([1,2,3,4,5,6,7,8,9,10]);</p>
+    <p ngNonBindable>
+        const api$ = ajax(&#123; url: 'https://httpbin.org/delay/1', method: 'POST', headers: &#123;
+        'Content-Type':'application/text' &#125;, body: "Hello" &#125;);
+    </p>
+    <p ngNonBindable>
+        const clickEvent$ = fromEvent(document.getElementById('counter'), 'click');</p>
+</div>
+
+<div>
+    <h2>Subscribing process</h2>
+    <p>Every Observable object will have a method, subscribe for the subscription process. Observer need to implement
+        three callback function to subscribe to the Observable object.</p>
+    <ul>
+        <li>next − Receive and process the value emitted from the Observable</li>
+        <li>error − Error handling callback</li>
+        <li>complete − Callback function called when all data from Observable are emitted.</li>
+    </ul>
+    const numbers$ = from([1,2,3,4,5,6,7,8,9,10]);<br />
+    // observer
+    const observer = &#123;<br />
+    next: (num: number) => &#123; this.numbers.push(num); this.val1 += num &#125;,<br />
+    error: (err: any) => console.log(err),<br />
+    complete: () => console.log("Observation completed")<br />
+    &#125;;<br />
+    numbers$.subscribe(observer);<br />
+</div>

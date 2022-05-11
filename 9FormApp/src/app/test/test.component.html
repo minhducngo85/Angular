@@ -1,0 +1,51 @@
+<h2>{{title}}</h2>
+<h3>HTML Form</h3>
+<form #userNameForm="ngForm" (ngSubmit)="onClickSubmit(userNameForm.value)">
+    <input type="text" name="username" placeholder="username" ngModel />
+    <br />
+    <br />
+    <input type="submit" value="submit">
+</form>
+
+<h3>Reactive Form</h3>
+<div>
+    <form [formGroup]="formData" (ngSubmit)="onReactiveFormSubmit(formData.value)">
+        <input type="text" name="userName" placeholder="userName" formControlName="userName">
+        <br />
+        <br />
+        <input type="submit" value="Click here">
+    </form>
+</div>
+<p> Textbox result is: {{userName}} </p>
+
+
+<h3>Validate Form</h3>
+<div>
+    <form [formGroup]="requiredForm" novalidate>
+        <div class="form-group">
+            <label class="center-block">Name:
+                <input class="form-control" formControlName="name">
+            </label>
+            <span *ngIf="requiredForm.controls['name'].invalid && requiredForm.controls['name'].touched"
+                class="alert alert-danger">
+                Name is required.
+            </span>
+        </div>
+
+        <div class="form-group" style="margin-top:10px;">
+            <label class="center-block">Email:
+                <input class="form-control" formControlName="email">
+            </label>
+            <span *ngIf="requiredForm.controls['email'].invalid && requiredForm.controls['email'].touched"
+                class="alert alert-danger">
+                <span *ngIf="requiredForm.controls['email'].errors">
+                    Email is invalid!
+                </span>
+            </span>
+        </div>
+
+    </form>
+
+    <p>Form value: {{requiredForm.value | json}}</p>
+    <p>Form status: {{requiredForm.status | json}}</p>
+</div>
