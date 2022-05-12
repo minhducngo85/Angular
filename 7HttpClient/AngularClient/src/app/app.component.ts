@@ -10,6 +10,7 @@ import { AuthService } from './servcice/auth.service';
 export class AppComponent implements OnInit {
   title = 'Expense Manager';
   isUserLoggedIn = false;
+  userName: string | null;
 
   constructor(private authService: AuthService) { }
 
@@ -22,10 +23,13 @@ export class AppComponent implements OnInit {
       this.isUserLoggedIn = true;
     else
       this.isUserLoggedIn = false;
+
+    this.userName = localStorage.getItem("userName");
   }
 
   public get isLoggedIn$(): Observable<boolean> {
     this.readLocalStorage();
     return of(this.isUserLoggedIn);
   }
+
 }

@@ -85,6 +85,8 @@ ng generate component login
 
 ng generate guard expense
 
+11. Edit entry
+ng generate component EditEntry
 
 # 2ComponentAndTemplate
 

@@ -1,15 +1,15 @@
-import { ExpenseEntryService } from './../servcice/expense-entry.service';
+import { ExpenseEntryService } from '../servcice/expense-entry.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
-import { ExpenseEntry } from './../model/expense-entry';
+import { ExpenseEntry } from '../model/expense-entry';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-expense-entity',
-  templateUrl: './expense-entity.component.html',
-  styleUrls: ['./expense-entity.component.css']
+  selector: 'app-expense-entry',
+  templateUrl: './expense-entry.component.html',
+  styleUrls: ['./expense-entry.component.css']
 })
-export class ExpenseEntityComponent implements OnInit {
+export class ExpenseEntryComponent implements OnInit {
   title: string;
   expenseEntry: ExpenseEntry = {} as ExpenseEntry;
   expenseEntry$: Observable<ExpenseEntry>;
@@ -29,9 +29,13 @@ export class ExpenseEntityComponent implements OnInit {
 
     this.expenseEntry$.subscribe((data) => this.expenseEntry = data);
   }
-  
+
   goToList() {
     this.router.navigate(['/expenses']);
+  }
+
+  goEditEntry() {
+    this.router.navigate(['/expenses/edit/' + this.selectedId]);
   }
 
 }

@@ -9,7 +9,10 @@
                     </div>
                     <div class="col-sm" style="text-align: right;">
                         <!--   <button type="button" class="btn btn-primary">Edit</button>-->
-                        <button mat-raised-button color="primary">Edit</button>
+                        <!--<button mat-raised-button color="primary">Edit</button>-->
+
+                        <button type="button" class="btn btn-primary btn-sm" routerLink="/expenses/add">
+                            <i class="fa fa-plus"></i> Add</button>
                     </div>
                 </div>
             </div>
@@ -24,7 +27,9 @@
                             <th>Category</th>
                             <th>Location</th>
                             <th>Spent On</th>
-                            <th>View</th> 
+                            <th>View</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,12 +39,14 @@
                             <td>{{entry.category}}</td>
                             <td>{{entry.location}}</td>
                             <td>{{entry.spendOn | date : 'short'}}</td>
-                            <td><a routerLink="../expenses/detail/{{ entry.id }}">View</a></td> 
+                            <td><a routerLink="../expenses/detail/{{ entry.id }}">View</a></td>
+                            <td><a routerLink="../expenses/edit/{{ entry.id }}">Edit</a></td>
+                            <td><a href="#" (click)="deleteExpenseEntry($event, entry.id)">Delete</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-          
+
             <!--Angular Material table -->
             <h2>Angular Material Table</h2>
             <div class="mat-elevation-z8" style="margin-top:10px;">
@@ -71,13 +78,28 @@
                     <ng-container matColumnDef="spendOn">
                         <th mat-header-cell *matHeaderCellDef style="text-align: left;padding: 10px;"> Spend On </th>
                         <td mat-cell *matCellDef="let element" style="text-align: left;padding: 10px;">
-                            {{element.spendOn}} </td>
+                            {{element.spendOn | date: 'dd/MM/yyyy HH:mm'}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="view">
                         <th mat-header-cell *matHeaderCellDef style="text-align: left;padding: 10px;"> View</th>
                         <td mat-cell *matCellDef="let element" style="text-align: left;padding: 10px;">
-                            <a routerLink="../expenses/detail/{{element.id}}">View</a> </td>
+                            <a routerLink="../expenses/detail/{{element.id}}">View</a>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="edit">
+                        <th mat-header-cell *matHeaderCellDef style="text-align: left;padding: 10px;"> Edit</th>
+                        <td mat-cell *matCellDef="let element" style="text-align: left;padding: 10px;">
+                            <a routerLink="../expenses/edit/{{element.id}}">Edit</a>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="delete">
+                        <th mat-header-cell *matHeaderCellDef style="text-align: left;padding: 10px;"> Delete</th>
+                        <td mat-cell *matCellDef="let element" style="text-align: left;padding: 10px;">
+                            <a href="#" (click)="deleteExpenseEntry($event, element.id)">Delete</a>
+                        </td>
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

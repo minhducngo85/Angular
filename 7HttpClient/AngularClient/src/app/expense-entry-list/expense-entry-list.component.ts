@@ -12,7 +12,7 @@ export class ExpenseEntryListComponent implements OnInit {
   title: string;
   expenseEntries: ExpenseEntry[] = [];
 
-  displayedColumns: string[] = ['item', 'amount', 'category', 'location', 'spendOn', 'view'];
+  displayedColumns: string[] = ['item', 'amount', 'category', 'location', 'spendOn', 'view', 'edit', 'delete'];
 
   /**
    * inject debug service
@@ -30,9 +30,19 @@ export class ExpenseEntryListComponent implements OnInit {
   }
 
   getExpenentiresFromApi(): void {
-    this.restService.getExpenseEntires().subscribe((data : ExpenseEntry[]) => {
+    this.restService.getExpenseEntires().subscribe((data: ExpenseEntry[]) => {
       this.expenseEntries = data;
     });
+  }
+
+  deleteExpenseEntry(evt: { preventDefault: () => void; }, id: number) {
+    evt.preventDefault();
+    // conform dialog
+    if (confirm("Are you sure to delete the entry?")) {
+      this.restService.deleteExpenseEntry(id)
+        .subscribe(data => console.log(data));
+      this.getExpenentiresFromApi();
+    }
   }
 
   /**

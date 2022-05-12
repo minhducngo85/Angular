@@ -46,11 +46,11 @@ export class ExpenseEntryService {
    */
   updateExpenseEntry(expenseEntry: ExpenseEntry): Observable<ExpenseEntry> {
     return this.httpClient.put<ExpenseEntry>(this.expenseRestUrl + "/" + expenseEntry.id, expenseEntry, this.httpOptions)
-    .pipe(
-       retry(3),
-       catchError(this.httpErrorHandler)
-    );
- }
+      .pipe(
+        retry(3),
+        catchError(this.httpErrorHandler)
+      );
+  }
 
   /**
    * delete an entry
@@ -72,8 +72,9 @@ export class ExpenseEntryService {
    * 
    * @param entry to store a object ion db
    */
-  public addExpenseEntry(entry: ExpenseEntry) {
-    this.httpClient.post<ExpenseEntry>(this.expenseRestUrl, entry, this.httpOptions);
+  public addExpenseEntry(entry: ExpenseEntry): Observable<ExpenseEntry> {
+    return this.httpClient.post<ExpenseEntry>(this.expenseRestUrl, entry, this.httpOptions).pipe(retry(3),
+      catchError(this.httpErrorHandler));
   }
 
   private httpErrorHandler(error: HttpErrorResponse) {
