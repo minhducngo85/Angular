@@ -13,6 +13,9 @@ http://localhost:8080/api/products to get list of all products
 
 3. Implement oder-related stuff
 
+4. Swagger ui and api docs
+http://localhost:8080/swagger-ui.html
+
 B:Fronent
 We finished development of both our applications and it is probably easier to develop it separately as we did. But, in production, it would be much more convenient to have a single application so let's now merge those two.
 

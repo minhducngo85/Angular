@@ -14,17 +14,17 @@ public class EcommerceBackendApplication {
     public static void main(String[] args) {
 	SpringApplication.run(EcommerceBackendApplication.class, args);
     }
-    
+
     @Bean
     CommandLineRunner runner(ProductService productService) {
 	return args -> {
-            productService.save(new Product(11L, "TV Set 2", 300.00, "http://placehold.it/200x100"));
-            productService.save(new Product(12L, "Game Console 2", 200.00, "http://placehold.it/200x100"));
-            productService.save(new Product(13L, "Sofa 2", 100.00, "http://placehold.it/200x100"));
-            productService.save(new Product(14L, "Icecream 2", 5.00, "http://placehold.it/200x100"));
-            productService.save(new Product(15L, "Beer 2", 3.00, "http://placehold.it/200x100"));
-            productService.save(new Product(16L, "Phone 2", 500.00, "http://placehold.it/200x100"));
-            productService.save(new Product(17L, "Watch 2", 30.00, "http://placehold.it/200x100"));
-        };
+	    productService.save(new Product(1L, "TV Set", 300.00, "http://placehold.it/200x100"));
+	    productService.save(new Product(2L, "Game Console", 200.00, "http://placehold.it/200x100"));
+	    productService.save(new Product(3L, "Sofa", 100.00, "http://placehold.it/200x100"));
+	    productService.save(new Product(4L, "Icecream", 5.00, "http://placehold.it/200x100"));
+	    productService.save(new Product(5L, "Beer", 3.00, "http://placehold.it/200x100"));
+	    productService.save(new Product(6L, "Phone", 500.00, "http://placehold.it/200x100"));
+	    productService.save(new Product(7L, "Watch", 30.00, "http://placehold.it/200x100"));
+	};
     }
 }
