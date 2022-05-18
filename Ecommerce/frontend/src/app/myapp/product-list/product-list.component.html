@@ -1,0 +1,22 @@
+<div class="row card-deck" >
+    <div class="col-lg-4 col-md-3 mb-4" *ngFor="let orderProduct of orderProducts">
+        <div class="card text-center">
+            <div class="card-header">
+                <h4>{{orderProduct.product.name}}</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">${{orderProduct.product.price}}</h5>
+                <div class="row">
+                    <div class="col-4 padding-0">
+                        <input type="number" min="0" class="form-control" [(ngModel)]=orderProduct.quantity />
+                    </div>
+                    <div class="col-8 padding-0">
+                        <button class="btn btn-primary" [disabled]="orderProduct.quantity <= 0" (click)="addToCart(orderProduct)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       
+    </div>
+</div>

@@ -1,0 +1,67 @@
+tuto link ref: https://www.baeldung.com/spring-angular-ecommerce
+
+A:Backend
+
+1. implement exception handling
+package com.minhduc.tuto.ecommerce.exception
+
+2. Implement Product model, Product service, Prodduct Controller
+
+Start application and test:
+http://localhost:8080/h2-console to debug database
+http://localhost:8080/api/products to get list of all products
+
+3. Implement oder-related stuff
+
+4. Swagger ui and api docs
+http://localhost:8080/swagger-ui.html
+
+B:Fronent
+We finished development of both our applications and it is probably easier to develop it separately as we did. But, in production, it would be much more convenient to have a single application so let's now merge those two.
+
+To create it, we need to open a terminal (or command prompt) in the /src/main folder and run:
+
+1. cd /src/main
+2. ng new frontend
+3. add bootrap css
+cd frontend
+npm install --save bootstrap
+
+and then to say to Angular to actually use it. For this, we need to 
+open a file src/main/frontend/angular.json and add node_modules/bootstrap/dist/css/bootstrap.min.css under “styles” property. And that's it.
+
+ "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css", "src/styles.css"
+            ],
+"scripts": [
+               "./node_modules/jquery/dist/jquery.js", "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+
+4. create base component and other component inside this base component
+ng g c ecommerce
+
+ng g c /ecommerce/products
+ng g c /ecommerce/orders
+ng g c /ecommerce/shopping-cart
+
+5. crate model 
+syntax: ng generate class hero --type=model
+
+6. harded coded url:
+create proxy-conf.json in our /frontend folder:
+{
+    "/api": {
+        "target": "http://localhost:8080",
+        "secure": false
+    }
+}
+
+And then we need to open package.json and change scripts.start property to match:
+
+"scripts": {
+    ...
+    "start": "ng serve --proxy-config proxy-conf.json",
+    ...
+}
+
+start applicaiton with npm start instead ng serve. 

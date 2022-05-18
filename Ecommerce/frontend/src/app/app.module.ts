@@ -7,16 +7,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { ProductsComponent } from './ecommerce/products/products.component';
-import { OrdersComponent } from './ecommerce/orders/orders.component';
+import { OrderComponent } from './ecommerce/order/order.component';
 import { ShoppingCartComponent } from './ecommerce/shopping-cart/shopping-cart.component';
+import { MyappComponent } from './myapp/myapp.component';
+import { OrderlistComponent } from './orderlist/orderlist.component';
+import { ProductListComponent } from './myapp/product-list/product-list.component';
+import { MyshoppingcartComponent } from './myapp/myshoppingcart/myshoppingcart.component';
+import { MyOrderComponent } from './myapp/my-order/my-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EcommerceComponent,
     ProductsComponent,
-    OrdersComponent,
-    ShoppingCartComponent
+    OrderComponent,
+    ShoppingCartComponent,
+    MyappComponent,
+    OrderlistComponent,
+    ProductListComponent,
+    MyshoppingcartComponent,
+    MyOrderComponent
   ],
   imports: [
     BrowserModule,

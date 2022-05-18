@@ -1,3 +1,31 @@
-<div class="container">
-  <app-ecommerce></app-ecommerce>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container" style="padding-top: 10px;">
+    <a class="navbar-brand" href="#">MinhDuc Ecommerce</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarResponsive" [ngClass]="{'collapse': true, 'navbar-collapse': true}">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="\">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/myapp" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">My Ecommerce App</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/orders" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Orders</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" style="margin-top: 20px;">
+  <!--<app-ecommerce></app-ecommerce> -->
+  <router-outlet></router-outlet>
 </div>

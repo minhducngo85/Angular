@@ -21,4 +21,16 @@ public class OrderProductDto {
     public void setQuantity(Integer quantity) {
 	this.quantity = quantity;
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+
+    @Override
+    public String toString() {
+	return "OrderProductDto [product=" + product + ", quantity=" + quantity + "]";
+    }
+
 }

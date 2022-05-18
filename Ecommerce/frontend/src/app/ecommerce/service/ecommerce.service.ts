@@ -1,7 +1,7 @@
 import { Product } from './../model/product.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ProductOrder } from '../model/product-order.model';
 import { ProductOrders } from '../model/product-orders.model';
 
@@ -13,7 +13,7 @@ export class EcommerceService {
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  
+
   /** uirl is hard coded in proxy-conf.json */
   private productsUrl = "/api/products";
   private ordersUrl = "/api/orders";
@@ -24,24 +24,28 @@ export class EcommerceService {
   /**
    * A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters: they maintain a registry of many listeners.
    */
+  // to notify the changes in the shopping cart
   private productOrderSubject = new Subject();
-  private ordersSubject = new Subject();
-  private totalSubject = new Subject();
-
   ProductOrderChanged = this.productOrderSubject.asObservable();
+
+  // to notify the change sin the order like remove item from shooping cart
+  private ordersSubject = new Subject();
   OrdersChanged = this.ordersSubject.asObservable();
+
+  private totalSubject = new Subject();
   TotalChanged = this.totalSubject.asObservable();
 
   private total: number;
 
   constructor(private http: HttpClient) { }
 
-  getAllProducts()  {
+  getAllProducts() {
     return this.http.get(this.productsUrl, this.httpOptions);
   }
 
   saveOrder(order: ProductOrders) {
-    return this.http.post(this.ordersUrl, order);
+    console.log(JSON.stringify(order));
+    return this.http.post(this.ordersUrl, order, this.httpOptions);
   }
 
   set SelectedProductOrder(value: ProductOrder) {

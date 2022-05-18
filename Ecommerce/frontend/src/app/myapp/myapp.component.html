@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-8">
+        <!--Inlclude view child-->
+        <app-product-list #productListC [hidden]="orderFinished"></app-product-list>
+    </div>
+    <div class="col-md-4">
+        <app-myshoppingcart  #shoppingCartC [hidden]="orderFinished" (onOrderFinished)=finishOrder($event)></app-myshoppingcart>
+    </div>
+
+    <div class="col-md-6 offset-3">
+        <app-my-order #orderC [hidden]="!orderFinished"></app-my-order>
+    </div>
+</div>

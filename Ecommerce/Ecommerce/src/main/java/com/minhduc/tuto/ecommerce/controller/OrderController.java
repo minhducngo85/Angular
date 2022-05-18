@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotNull;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -34,6 +36,9 @@ import io.swagger.v3.oas.annotations.Operation;
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class.getName());
+    
     @Autowired
     ProductService productService;
 
@@ -47,6 +52,7 @@ public class OrderController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public @NotNull Iterable<Order> list() {
+	LOGGER.info("list order");
 	return this.orderService.getAllOrders();
     }
 
@@ -67,6 +73,8 @@ public class OrderController {
      */
     @PostMapping
     public ResponseEntity<Order> create(@RequestBody OrderForm form) {
+	LOGGER.info("create order");
+	LOGGER.info("{}", form.toString());
 	List<OrderProductDto> formDtos = form.getProductOrders();
 	validateProductsExistence(formDtos);
 	Order order = new Order();
@@ -109,6 +117,15 @@ public class OrderController {
 
 	public void setProductOrders(List<OrderProductDto> productOrders) {
 	    this.productOrders = productOrders;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	
+	@Override
+	public String toString() {
+	    return "OrderForm [" + productOrders + "]";
 	}
     }
 }

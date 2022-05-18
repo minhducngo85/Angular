@@ -1,6 +1,7 @@
 package com.minhduc.tuto.ecommerce.model;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -62,4 +63,16 @@ public class Product {
     public void setPictureUrl(String pictureUrl) {
 	this.pictureUrl = pictureUrl;
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+
+    @Override
+    public String toString() {
+	return "{id=" + id + ", name=" + name + "}";
+    }
+
 }

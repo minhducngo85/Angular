@@ -25,6 +25,10 @@ public class EcommerceBackendApplication {
 	    productService.save(new Product(5L, "Beer", 3.00, "http://placehold.it/200x100"));
 	    productService.save(new Product(6L, "Phone", 500.00, "http://placehold.it/200x100"));
 	    productService.save(new Product(7L, "Watch", 30.00, "http://placehold.it/200x100"));
+	    productService.save(new Product(8L, "Samsung Watch", 30.10, "http://placehold.it/200x100"));
+	    productService.save(new Product(9L, "MS Surface Pro 7", 600.20, "http://placehold.it/200x100"));
+	    productService.save(new Product(10L, "Samsung S21", 70.00, "http://placehold.it/200x100"));
+	    productService.save(new Product(11L, "Computer", 60.00, "http://placehold.it/200x100"));
 	};
     }
 }

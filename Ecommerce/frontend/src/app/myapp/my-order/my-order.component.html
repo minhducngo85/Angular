@@ -1,0 +1,15 @@
+<h2 class="text-center">ORDER</h2>
+<ul>
+    <li *ngFor="let productOrder of orderProducts">
+        {{ productOrder.product.name }} - ${{ productOrder.product.price }} x {{ productOrder.quantity}} pcs.
+    </li>
+</ul>
+<h3 class="text-right">Total amount: ${{ total  | number :'1.2-2'}}</h3>
+
+<button class="btn btn-primary btn-block" (click)="pay()" *ngIf="!paid">Pay</button>
+
+<div class="alert alert-success" role="alert" *ngIf="paid">
+    <strong>Congratulation!</strong> You successfully made the order.<br/>
+    <a class="nav-link" routerLink="/orders" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">View All Orders</a>
+</div>
