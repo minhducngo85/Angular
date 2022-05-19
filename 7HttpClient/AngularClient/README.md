@@ -88,6 +88,11 @@ ng generate guard expense
 11. Edit entry
 ng generate component EditEntry
 
+12. Table Sorting Filtering Paginating
+https://material.angular.io/components/table/examples
+
+###########################################################################
+
 # 2ComponentAndTemplate
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.

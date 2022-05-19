@@ -1,3 +1,4 @@
+import { TableFilterSortingPaginatorComponent } from './table-filter-sorting-paginator/table-filter-sorting-paginator.component';
 import { AboutComponent } from './about/about.component';
 import { EditEntryComponent } from './edit-entry/edit-entry.component';
 import { ExpenseEntryComponent } from './expense-entry/expense-entry.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'tablepaginator', component: TableFilterSortingPaginatorComponent },
   { path: 'expenses', component: ExpenseEntryListComponent, canActivate: [ExpenseGuard]},
   { path: 'expenses/detail/:id', component: ExpenseEntryComponent, canActivate: [ExpenseGuard] },
   { path: 'expenses/edit/:id', component: EditEntryComponent, canActivate: [ExpenseGuard] },

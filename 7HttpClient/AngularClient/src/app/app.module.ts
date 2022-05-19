@@ -15,6 +15,11 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { EditEntryComponent } from './edit-entry/edit-entry.component';
 import { AboutComponent } from './about/about.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { TableFilterSortingPaginatorComponent } from './table-filter-sorting-paginator/table-filter-sorting-paginator.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,8 +29,8 @@ import { AboutComponent } from './about/about.component';
     LoginComponent,
     LogoutComponent,
     EditEntryComponent,
-    AboutComponent
-  ],
+    AboutComponent,
+    TableFilterSortingPaginatorComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -35,7 +40,11 @@ import { AboutComponent } from './about/about.component';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
