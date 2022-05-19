@@ -20,6 +20,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { TableFilterSortingPaginatorComponent } from './table-filter-sorting-paginator/table-filter-sorting-paginator.component';
 import { MatInputModule } from '@angular/material/input';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MatInputModule } from '@angular/material/input';
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

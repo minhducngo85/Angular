@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 export interface UserData {
   id: string;
@@ -13,6 +14,10 @@ export interface UserData {
 /** Constants used to fill up our data base. */
 const FRUITS: string[] = [
   'blueberry',
+  'strawberry',
+  'pomelo',
+  'apple',
+  'Jackfruit',
   'lychee',
   'kiwi',
   'mango',
@@ -22,6 +27,9 @@ const FRUITS: string[] = [
   'pineapple',
 ];
 const NAMES: string[] = [
+  'Quynh Anh',
+  'Minh Duc',
+  'Lucas',
   'Maia',
   'Asher',
   'Olivia',
@@ -78,6 +86,10 @@ export class TableFilterSortingPaginatorComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.displayedColumns, event.previousIndex, event.currentIndex);
   }
 }
 
