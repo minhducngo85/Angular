@@ -21,8 +21,7 @@
                         <input type="hidden" class="form-control" id="id" formControlName="id" />
                         <label for="item">Item: </label>
                         <input type="text" class="form-control" id="item" formControlName="item" />
-                        <span *ngIf="formData.get('item')?.invalid && (formData.get('item')?.dirty)"
-                            class="alert alert-danger">
+                        <span *ngIf="formData.get('item')?.invalid && (formData.get('item')?.dirty)" class="alert alert-danger">
                             <span *ngIf="formData.get('item')?.errors">Item is required </span>
                         </span>
                     </div>
@@ -30,8 +29,7 @@
                     <div class="form-group">
                         <label for="amount">Amount: </label>
                         <input type="text" class="form-control" id="amount" formControlName="amount" />
-                        <span *ngIf="formData.get('amount')?.invalid && (formData.get('amount')?.dirty)"
-                            class="alert alert-danger">
+                        <span *ngIf="formData.get('amount')?.invalid && (formData.get('amount')?.dirty)" class="alert alert-danger">
                             <span *ngIf="formData.get('amount')?.errors">Item is required </span>
                         </span>
                     </div>
@@ -57,8 +55,7 @@
                         <input type="datetime" class="form-control" id="spendOn" formControlName="spendOn">
                     </div>
 
-                    <button class="btn btn-lg btn-primary btn-block" type="submit"
-                        [disabled]="!formData.valid">Submit</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!formData.valid">Submit</button>
                 </form>
             </div>
         </div>
