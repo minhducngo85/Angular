@@ -91,6 +91,7 @@ ng generate component EditEntry
 12. Table Sorting Filtering Paginating
 https://material.angular.io/components/table/examples
 
+
 ###########################################################################
 
 # 2ComponentAndTemplate
