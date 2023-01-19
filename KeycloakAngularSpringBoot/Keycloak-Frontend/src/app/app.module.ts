@@ -6,10 +6,16 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializer } from 'src/utils/app-init';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
+import { AdminComponent } from './admin/admin.component';
+import { ManagerComponent } from './manager/manager.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccessDeniedComponent,
+    AdminComponent,
+    ManagerComponent
   ],
   imports: [
     BrowserModule,

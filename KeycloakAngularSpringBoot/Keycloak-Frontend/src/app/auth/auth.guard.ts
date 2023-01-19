@@ -3,6 +3,11 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
 import { Observable } from 'rxjs';
 
+
+/**
+ * class to project url like SecurityCOnfig in SpringBoot
+ * 
+ */
 @Injectable({
   providedIn: 'root'
 })

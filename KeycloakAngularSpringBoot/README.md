@@ -45,3 +45,22 @@ export const environment = {
     clientId: 'demo-angular',
   },
 };
+
+3. setup
+ - create utils inside the src folder and create app-init.ts
+ - update app.module.ts
+
+ 4. create auth guard and service
+ - create new folder app/auth
+ - go to app/auth: create auth guard: ng generate g auth and add content
+ - create authe service: ng generate s auth
+ 
+
+ 5. Create some components
+   ng g c access-denied 
+   ng g c admin 
+   ng g c manager
+
+
+6. add path to app-roungting.module
+
