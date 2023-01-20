@@ -1,8 +1,11 @@
-###########################################
-Please start backend at
-Springboot/SpringJwtSecurity
+########## RUN ###############
+server: server/Server.bat 
+client: npm start (maybe npm install is required before)
 
-or run /server/Server.bat file
+################## Backend Code #########################
+Please take a look at: Springboot/SpringJwtSecurity
+
+run command: /server/Server.bat file
 
 ######################## Steps ##############################
 1. ng new JwtRoleBasedAuthentication

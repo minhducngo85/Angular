@@ -1,6 +1,15 @@
-THis is a demestration of springboot, keycloak and angular
+This is a demestration of springboot, keycloak and angular
+############### Start project ##############
+- keycloak: bin\standalone.bat
+    http://localhost:8080
+- Angular: npm start
+    http://localhost:4200
+- Server: 
+
 
 ################ Development ###############################
+
+### Keycloak installation
 1. install keycloak:
 - download from: https://www.keycloak.org/downloads
 - start keycloak: http://localhost:8080/
@@ -8,7 +17,8 @@ THis is a demestration of springboot, keycloak and angular
 - create a new client 'angular-demo' - take a look at picture: keycloak-client.png
 ![img not found](./Keycloak-Client.png)
 
-2. Integrate Keycloak with angular
+### Angular Client
+1. Integrate Keycloak with angular
 - create a new angular project
     ng new keycloak-frontend
 - go to working directory 'cd keycloak-frontend' and then let's install dependencies:
@@ -46,21 +56,42 @@ export const environment = {
   },
 };
 
-3. setup
+2. setup
  - create utils inside the src folder and create app-init.ts
  - update app.module.ts
 
- 4. create auth guard and service
+3. create auth guard and service
  - create new folder app/auth
  - go to app/auth: create auth guard: ng generate g auth and add content
  - create authe service: ng generate s auth
  
 
- 5. Create some components
+4. Create some components
    ng g c access-denied 
    ng g c admin 
    ng g c manager
 
 
-6. add path to app-roungting.module
+5. add path to app-roungting.module
+6. implelement the app.copmponent.html and app.component.ts
 
+### Springboot Server
+1. create a new spring boot app from https://start.spring.io
+![img not found](./SpringBootApp.png)
+2. add keycloak dependency
+3. let's create a new client from backend
+ - client id: springboot-demo
+ - client-protocol: openid-connect
+ - Root URL: http://localhost:8888/api
+ - access type: bearer-only 
+![img not found](./SpringBootKeycloakClient.png)
+4. create a new RestController.java
+5. create new user and role in keycloak
+ - go to springboot-demo client and click on roles tab
+ - create two new roles: ROLE_ADMIN, ROLE_MANAGER
+ - create new users: user (pass: user), manager (pass: manager), admin (pass: admin)
+ - click on Role Mappings and assign to coresponding roles
+6. let open webbrowser and try
+
+
+### issue : cors orignal is not working
