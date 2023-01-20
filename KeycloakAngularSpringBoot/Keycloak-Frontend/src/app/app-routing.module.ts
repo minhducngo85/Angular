@@ -12,6 +12,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'access-denied',
+    component: AccessDeniedComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'admin',
     component: AdminComponent,
     canActivate: [AuthGuard],
