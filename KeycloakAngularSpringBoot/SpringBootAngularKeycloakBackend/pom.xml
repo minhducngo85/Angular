@@ -7,7 +7,7 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.heroes</groupId>
+	<groupId>com.example.backend</groupId>
 	<artifactId>SpringBootAngularKeycloakBackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>

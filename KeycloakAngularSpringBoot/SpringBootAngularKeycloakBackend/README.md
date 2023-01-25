@@ -1,4 +1,4 @@
-# heroes-backend
+# springboot-backend
 
 Check out following tutorials to Implement Authentication and Authorization in your Spring Boot and Angular application. 
 

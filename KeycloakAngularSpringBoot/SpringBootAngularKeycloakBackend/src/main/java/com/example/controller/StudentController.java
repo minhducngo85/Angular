@@ -13,24 +13,26 @@ import com.example.model.Student;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/heroes")
+@RequestMapping("/api/students")
 public class StudentController {
 
     private List<Student> someStudents = List.of(
-            new Student(1, "Ken"),
-            new Student(2, "Yannick"),
-            new Student(3, "Pieter"));
+            new Student(1, "Kevin"),
+            new Student(2, "Lucas"),
+            new Student(3, "Mia Ngo"));
 
     @GetMapping
-    @RolesAllowed("heroes-user")
+    @RolesAllowed({"ROLE_USER", "ROLE_MANAGER", "ROLE_ADMIN"})
     public List<Student> students() {
+	System.out.println("get students");
         return someStudents;
     }
 
     @GetMapping("/{id}")
-    @RolesAllowed("heroes-admin")
+    @RolesAllowed("ROLE_ADMIN")
     public Student getStudent(@PathVariable("id") String id) {
-        return someStudents.stream()
+	System.out.println("get students with id = " + id);
+	return someStudents.stream()
                 .filter(s -> Integer.toString(s.getId()).equals(id))
                 .findFirst()
                 .orElse(null);
