@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.heroes</groupId>
-	<artifactId>heroes-backend</artifactId>
+	<artifactId>SpringBootAngularKeycloakBackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>heroes-backend</name>
-	<description>Gym Management Application using spring boot</description>
+	<name>SpringBootAngularKeycloakBackend</name>
+	<description>Spring Boot backend using keycloak</description>
 
 	<properties>
 		<java.version>11</java.version>
