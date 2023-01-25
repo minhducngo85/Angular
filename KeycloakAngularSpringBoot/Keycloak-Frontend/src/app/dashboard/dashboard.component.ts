@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
         this.message = data.message;
       },
       error: (err: any) => {
-        this.message = 'Error: \n' + JSON.stringify(err);
+        this.message = '<p style="color:red;">Error:' + err.message + '</P>';
       }
 
     }
@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
         this.message2 = JSON.stringify(data);
       },
       error: (err: any) => {
-        this.message2 = 'Error: \n' + JSON.stringify(err);
+        this.message2 = '<p style="color:red">Error: \n' + err.message + '</P>';
       }
     }
     this.http.get(environment.serverUrl + "/customers").subscribe(observer2);
