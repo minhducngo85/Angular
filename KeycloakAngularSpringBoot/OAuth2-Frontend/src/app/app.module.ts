@@ -1,8 +1,8 @@
-import { NgModule }       from '@angular/core';
+import { APP_INITIALIZER, NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
-import { OAuthModule } from 'angular-oauth2-oidc';
+import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
 import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent }         from './app.component';
@@ -11,6 +11,8 @@ import { StudentDetailComponent }  from './student-detail/student-detail.compone
 import { StudentsComponent }      from './students/students.component';
 import { StudentSearchComponent }  from './student-search/student-search.component';
 import { MessagesComponent }    from './messages/messages.component';
+import { oauthInitializer } from './app-init';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   imports: [
@@ -20,7 +22,7 @@ import { MessagesComponent }    from './messages/messages.component';
     HttpClientModule,
     OAuthModule.forRoot({
       resourceServer: {
-          allowedUrls: ['http://localhost:8888/api'],
+          allowedUrls: [environment.backendUrl],
           sendAccessToken: true
       }
   })
@@ -33,6 +35,13 @@ import { MessagesComponent }    from './messages/messages.component';
     MessagesComponent,
     StudentSearchComponent
   ],
+  providers: [// add this provider to initialize Keycloak
+    {
+      provide: APP_INITIALIZER,
+      useFactory: oauthInitializer,
+      deps: [OAuthService],
+      multi: true,
+    }],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

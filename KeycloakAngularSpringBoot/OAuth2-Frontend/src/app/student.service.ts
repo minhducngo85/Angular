@@ -6,12 +6,13 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Student } from './student';
 import { MessageService } from './message.service';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
 export class StudentService {
 
-  private studentsUrl ='http://localhost:8888/api/students';  // URL to web api
+  private studentsUrl = environment.backendUrl + '/students';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

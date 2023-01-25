@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
       }
 
     }
-    this.http.get(`${environment.serverUrl}/dashboard`).subscribe(observer);
+    this.http.get(`${environment.backendUrl}/dashboard`).subscribe(observer);
 
     // customer endpoint
     const observer2 = {
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
         this.message2 = '<p style="color:red">Error: \n' + err.message + '</P>';
       }
     }
-    this.http.get(environment.serverUrl + "/customers").subscribe(observer2);
+    this.http.get(environment.backendUrl + "/customers").subscribe(observer2);
   }
 
   async viewToken(): Promise<void> {

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost:8888/api',
+  backendUrl: 'http://localhost:8888/api',
   keycloak: {
     // Url of the Identity Provider
     issuer: 'http://localhost:8080/auth/',

@@ -11,10 +11,10 @@ export class ManagerComponent implements OnInit {
 
   message = 'message';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get(`${environment.serverUrl}/manager`).subscribe((data: any) => {
+    this.http.get(environment.backendUrl + '/manager').subscribe((data: any) => {
       this.message = data.message;
     });
   }
