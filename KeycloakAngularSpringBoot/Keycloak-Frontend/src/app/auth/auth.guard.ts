@@ -19,6 +19,8 @@ export class AuthGuard extends KeycloakAuthGuard {
   }
 
   async isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
+    let url: string = state.url;
+    console.log(`url: ${url}`);
     // Force the user to log in if currently unauthenticated.
     console.log(`authenticated: ${this.authenticated}`);
     if (!this.authenticated) {

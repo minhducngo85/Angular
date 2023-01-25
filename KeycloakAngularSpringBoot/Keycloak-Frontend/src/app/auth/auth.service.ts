@@ -16,7 +16,19 @@ export class AuthService {
     this.keycloakService.logout();
   }
 
+  login(): void {
+    this,this.keycloakService.login();
+  }
+
   getLoggedUser() : any {
     return this.keycloakService.getKeycloakInstance().idTokenParsed;
   } 
+
+  getToken(): any {
+    return this.keycloakService.getToken();
+  }
+
+  getRoles(): any {
+    return this.keycloakService.getUserRoles();
+  }
 }

@@ -4,7 +4,11 @@ This is a demestration of springboot, keycloak and angular
     http://localhost:8080
 - Angular: npm start
     http://localhost:4200
-- Server: 
+- Server: start spring boot app
+- login data:
+user - user
+manager - manager
+admin - admin
 
 
 ################ Development ###############################
@@ -56,7 +60,7 @@ export const environment = {
   },
 };
 
-2. setup
+2. setup: to intialize the Keycloak client
  - create utils inside the src folder and create app-init.ts
  - update app.module.ts
 
@@ -75,6 +79,27 @@ export const environment = {
 5. add path to app-roungting.module
 6. implelement the app.copmponent.html and app.component.ts
 
+7. in cse if you want to project only resources from unauthorization, please enbale check-sso
+  updaetw app-init.ts as:
+
+  initOptions: {
+            //   This is an action we specified on keycloak load
+            //   We have two options : 'login-required'|'check-sso'
+            //   If is set to 'login-required' this means your browser will do a full redirect to the Keycloak server and back to your application.
+            //   If is set to  'check-sso'  instead this action will be performed in a hidden iframe, so your application resources only need to be loaded and parsed once by the browser.
+            //   Then you will need to add the silentCheckSsoRedirectUri and create a html file   silent-check-sso.html with this content
+            // <html>
+            //    <body>
+            //         <script>
+            //           parent.postMessage(location.href, location.origin);
+            //         </script>
+            //      </body>
+            // </html>
+            onLoad: 'check-sso',
+            checkLoginIframe: true,
+            silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
+
+
 ### Springboot Server
 1. create a new spring boot app from https://start.spring.io
 ![img not found](./SpringBootApp.png)
@@ -91,7 +116,12 @@ export const environment = {
  - create two new roles: ROLE_ADMIN, ROLE_MANAGER
  - create new users: user (pass: user), manager (pass: manager), admin (pass: admin)
  - click on Role Mappings and assign to coresponding roles
-6. let open webbrowser and try
+6. let's open webbrowser and try
 
 
 ### issue : cors orignal is not working
+
+
+### Alternative Frontend: OAuth2-Frontend - font end with OAuth2 instaed of Keycloak implementation
+1. ng new OAuth2-Frontend
+2. add OAuth2.0 dependency: npm install angular-oauth2-oidc@12 --save (for AngularCLI 13)
