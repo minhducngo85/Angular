@@ -2,13 +2,9 @@ package com.example.controller;
 
 import java.util.List;
 
-import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +18,7 @@ import com.example.model.MessageResponse;
 @RestController
 @RequestMapping(value = "/api")
 public class DemoController {
-    
+
     @Autowired
     private DemoService service;
 
@@ -44,7 +40,7 @@ public class DemoController {
      * @return
      */
     @GetMapping(value = "/dashboard")
-    @RolesAllowed({"ROLE_ADMIN", "ROLE_MANAGER", "ROLE_USER"})
+    @RolesAllowed({ "ROLE_ADMIN", "ROLE_MANAGER", "ROLE_USER" })
     public MessageResponse loggedUserEndPoint() {
 	System.out.println("Dashboard endpoint!");
 	return new MessageResponse("Hello From Dashboard! Msg was sent from backend!");
@@ -61,7 +57,7 @@ public class DemoController {
 	System.out.println("Manager endpoint!");
 	return new MessageResponse("Hello From Manager! Msg was sent from backend!");
     }
-    
+
     @GetMapping("/customers")
     @RolesAllowed("ROLE_ADMIN")
     public List<Customer> getCustomers() {

@@ -16,22 +16,22 @@ import com.example.model.Student;
 @RequestMapping("/api/heroes")
 public class StudentController {
 
-    private List<Student> someHeroes = List.of(
+    private List<Student> someStudents = List.of(
             new Student(1, "Ken"),
             new Student(2, "Yannick"),
             new Student(3, "Pieter"));
 
     @GetMapping
     @RolesAllowed("heroes-user")
-    public List<Student> heroes() {
-        return someHeroes;
+    public List<Student> students() {
+        return someStudents;
     }
 
     @GetMapping("/{id}")
     @RolesAllowed("heroes-admin")
-    public Student hero(@PathVariable("id") String id) {
-        return someHeroes.stream()
-                .filter(h -> Integer.toString(h.getId()).equals(id))
+    public Student getStudent(@PathVariable("id") String id) {
+        return someStudents.stream()
+                .filter(s -> Integer.toString(s.getId()).equals(id))
                 .findFirst()
                 .orElse(null);
     }
