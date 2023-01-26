@@ -121,9 +121,11 @@ export const environment = {
 6. let's open webbrowser and try
 
 
-### issue : cors orignal is not working
-
-
 ### Alternative Frontend: OAuth2-Frontend - font end with OAuth2 instaed of Keycloak implementation
 1. ng new OAuth2-Frontend
 2. add OAuth2.0 dependency: npm install angular-oauth2-oidc@12 --save (for AngularCLI 13)
+3. initialie OAthauServcice
+4. generate dashboard component
+
+
+Limitation: no chance to get roles from OAuthSerivce
