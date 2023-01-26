@@ -8,6 +8,6 @@
 - Angular Material table
 
 ################# Screeshots ##########
-![img not found](./screeshot_1.png)
-![img not found](./screeshot_2.png)
-![img not found](./screeshot_3.png)
+![img not found](./screenshot_1.png)  
+![img not found](./screenshot_2.png)  
+![img not found](./screenshot_3.png)  
