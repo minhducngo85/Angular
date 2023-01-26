@@ -1,12 +1,13 @@
 This is a demestration of springboot, keycloak and angular
 ############### Start project ##############
-- keycloak: bin\standalone.bat
+1. keycloak 13.01.1: bin\standalone.bat
     http://localhost:8080
-- Angular: npm start
+2. Angular: npm start
     http://localhost:4200
-- Server: start spring boot app
+3. Server: start spring boot app
    server source SpringBootAngularKeycloakBackend at springboot repository
-- login data:
+   https://github.com/vampir301285/SpringBoot/tree/master/SpringBootAngularKeycloakBackend
+4. login data:
 user - user
 manager - manager
 admin - admin
