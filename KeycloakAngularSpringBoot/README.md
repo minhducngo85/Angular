@@ -6,7 +6,7 @@ This is a demestration of springboot, keycloak and angular
     http://localhost:4200
 3. Server: start spring boot app
    server source SpringBootAngularKeycloakBackend at springboot repository
-   https://github.com/vampir301285/SpringBoot/tree/master/SpringBootAngularKeycloakBackend
+   https://github.com/minhducngo85/SpringBoot/tree/master/SpringBootAngularKeycloakBackend
 4. login data:
 user - user
 manager - manager
